@@ -1,0 +1,64 @@
+document.addEventListener("DOMContentLoaded", function() {
+    
+    let p = {
+        teclas: document.querySelectorAll("#calculadora ul li"),
+        accion: null,
+        digito: null,
+        operaciones: document.querySelector("#operaciones"),
+    }
+
+    let m = {
+        inicio: function () {
+            for (let i = 0; i < p.teclas.length; i++) {
+                p.teclas[i].addEventListener("click", m.oprimirtecla);
+            }
+        },
+
+        oprimirtecla: function (tecla) {
+            p.accion = tecla.target.getAttribute("class");
+            p.digito = tecla.target.innerHTML;
+            console.log("Accion:", p.accion);
+            console.log("Digito:", p.digito);
+            m.calculadora(p.accion);
+        },
+
+        calculadora: function (accion) {
+            switch (accion) {
+                case "numero":
+                    if (p.operaciones.innerHTML === "0") {
+                        p.operaciones.innerHTML = p.digito;
+                    } else {
+                        p.operaciones.innerHTML += p.digito;
+                    }
+                    break;
+
+                case "simbolo":
+                    p.operaciones.innerHTML += p.digito;
+                    break;
+
+                case "decimal":
+                    if (!p.operaciones.innerHTML.includes(".")) {
+                        p.operaciones.innerHTML += p.digito;
+                    }
+                    break;
+
+                case "igual":
+                    try {
+                        p.operaciones.innerHTML = eval(p.operaciones.innerHTML);
+                    } catch (e) {
+                        p.operaciones.innerHTML = "Error";
+                    }
+                    break;
+            }
+        },
+
+        borrarCalculadora: function () {
+            p.operaciones.innerHTML = "0";
+        }
+    }
+
+    // ✅ Exponer m globalmente para que el onclick del HTML funcione
+    window.m = m;
+
+    m.inicio();
+});

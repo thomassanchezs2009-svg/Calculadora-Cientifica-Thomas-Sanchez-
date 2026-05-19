@@ -57,30 +57,11 @@ ul li {
 .decimal { background-color: #e2e2e2; }
 .igual   { background-color: #0f3460; color: white; }
 
-/* Hover fila 1 - cambia color */
-ul li:nth-child(1):hover,
-ul li:nth-child(2):hover,
-ul li:nth-child(3):hover,
-ul li:nth-child(4):hover {
-    background-color: #6a1285;
+/* Hover todos los botones */
+ul li:hover {
+    background-color: #851594;
     color: white;
-    transition: all 0.2s;
-}
-
-/* Hover fila 2 - borde */
-ul li:nth-child(5):hover,
-ul li:nth-child(6):hover,
-ul li:nth-child(7):hover,
-ul li:nth-child(8):hover {
     border: 3px solid #e94560;
-    transition: all 0.2s;
-}
-
-/* Hover fila 3 - sombra */
-ul li:nth-child(9):hover,
-ul li:nth-child(10):hover,
-ul li:nth-child(11):hover,
-ul li:nth-child(12):hover {
     box-shadow: 0px 0px 15px rgba(233, 69, 96, 0.8);
     transition: all 0.2s;
 }
