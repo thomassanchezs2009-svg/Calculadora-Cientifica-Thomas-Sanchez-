@@ -87,46 +87,7 @@ let m ={
                 p.cantisignos = 0;
                 break;
             
-            case "coseno":
-                if(p.operaciones.innerHTML !== '' && p.operaciones.innerHTML !== '0'){
-                    let gradosCos = parseFloat(p.operaciones.innerHTML);
-                    p.operaciones.innerHTML = parseFloat(
-                        Math.cos(gradosCos * Math.PI / 180). toFixed(10)
-                    );
-                    p.resultado = true;
-
-                }
-                break;
-
-            case  "seno":
-                if(p.operaciones.innerHTML !== '' && p.operaciones.innerHTML !== '0'){
-                    let gradosSen = parseFloat(p.operaciones.innerHTML);
-                    p.operaciones.innerHTML = parseFloat(
-                        Math.sin(gradosSen * Math.PI / 180).toFixed(10)
-                    );
-                    p.resultado = true;
-                }
-                break;
-            case "exponente":
-                if (p.operaciones.innerHTML !== ''){
-                    let base = parseFloat(p.operaciones.innerHTML);
-                    p.operaciones.innerHTML = Math.pow(base, 2);
-                    p.resultado = true;
-                }
-                break;
-            case "raiz":
-            if(p.operaciones.innerHTML !== ''){
-                let num = parseFloat(p.operaciones.innerHTML);
-                if (num < 0){
-                    p.operaciones.innerHTML = "Erros: raiz negativa."; 
-                } else {
-                    p.operaciones.innerHTML = parseFloat(
-                        Math.sqrt(num).toFixed(10)
-                    );
-                }
-                p.resultado = true;
-            }
-            break;
+           
 
         }
     },
@@ -146,6 +107,15 @@ let m ={
             }else if (e.key === 'Backspace'){
                 const val = p.operaciones.innerHTML;
                 p.operaciones.innerHTML = val.length > 1 ? val.slice(0,-1) : '0';
+            }else if(e.key === 'r'){
+                m.calculadora('raiz', 'r');
+            }else if(e.key === 'c'){
+                m.calculadora('coseno', 'c');
+            }else if(e.key === 's'){
+                m.calculadora('seno', 's');
+            }else if(e.key === 'e'){
+                m.calculadora('exponente', 'e');
+
             }else if (e.key === 'Escape'){
                 m.borrarCalculadora();
             }
