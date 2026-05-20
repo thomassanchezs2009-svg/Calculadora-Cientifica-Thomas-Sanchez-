@@ -107,7 +107,13 @@ let m ={
                     p.resultado = true;
                 }
                 break;
-            
+            case "exponente":
+                if (p.operaciones.innerHTML !== ''){
+                    let base = parseFloat(p.operaciones.innerHTML);
+                    p.operaciones.innerHTML = Math.pow(base, 2);
+                    p.resultado = true;
+                }
+                break;
             case "raiz":
             if(p.operaciones.innerHTML !== ''){
                 let num = parseFloat(p.operaciones.innerHTML);
