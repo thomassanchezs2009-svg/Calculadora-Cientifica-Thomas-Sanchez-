@@ -87,7 +87,20 @@ let m ={
                 p.cantisignos = 0;
                 break;
             
-            
+           
+            case "raiz":
+            if(p.operaciones.innerHTML !== ''){
+                let num = parseFloat(p.operaciones.innerHTML);
+                if (num < 0){
+                    p.operaciones.innerHTML = "Erros: raiz negativa."; 
+                } else {
+                    p.operaciones.innerHTML = parseFloat(
+                        Math.sqrt(num).toFixed(10)
+                    );
+                }
+                p.resultado = true;
+            }
+            break;
 
         }
     },
