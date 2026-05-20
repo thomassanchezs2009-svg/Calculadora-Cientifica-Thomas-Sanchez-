@@ -29,6 +29,8 @@ h1 { color: white; }
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
+    min-height: 50px;
+    word-break: break-all;
 }
 
 /* Botones */
@@ -52,10 +54,21 @@ ul li {
 }
 
 /* Colores de botones */
-.numero { background-color: #e2e2e2; }
-.simbolo { background-color: #e94560; color: white; }
-.decimal { background-color: #e2e2e2; }
-.igual   { background-color: #0f3460; color: white; }
+.numero     { background-color: #e2e2e2; }
+.simbolo    { background-color: #e94560; color: white; }
+.decimal    { background-color: #e2e2e2; }
+.igual      { background-color: #0f3460; color: white; }
+
+/*  Botones ocupan 2 columnas por el texto largo */
+.coseno,
+.seno,
+.exponente,
+.raiz {
+    background-color: #533483;
+    color: white;
+    font-size: 15px;
+    grid-column: span 2;
+}
 
 /* Hover todos los botones */
 ul li:hover {
