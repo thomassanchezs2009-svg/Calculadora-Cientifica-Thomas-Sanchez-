@@ -87,7 +87,27 @@ let m ={
                 p.cantisignos = 0;
                 break;
             
-           
+            case "coseno":
+                if(p.operaciones.innerHTML !== '' && p.operaciones.innerHTML !== '0'){
+                    let gradosCos = parseFloat(p.operaciones.innerHTML);
+                    p.operaciones.innerHTML = parseFloat(
+                        Math.cos(gradosCos * Math.PI / 180). toFixed(10)
+                    );
+                    p.resultado = true;
+
+                }
+                break;
+
+            case  "seno":
+                if(p.operaciones.innerHTML !== '' && p.operaciones.innerHTML !== '0'){
+                    let gradosSen = parseFloat(p.operaciones.innerHTML);
+                    p.operaciones.innerHTML = parseFloat(
+                        Math.sin(gradosSen * Math.PI / 180).toFixed(10)
+                    );
+                    p.resultado = true;
+                }
+                break;
+            
             case "raiz":
             if(p.operaciones.innerHTML !== ''){
                 let num = parseFloat(p.operaciones.innerHTML);
